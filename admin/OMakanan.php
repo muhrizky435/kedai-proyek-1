@@ -18,7 +18,6 @@
             <div class="col-lg-3 ">
             <!-- sidebar -->
                 <?php include_once "Sidebar.php"; ?>
-            <!-- End Side Bar -->
             <!-- content -->
             <div class="col-lg-9 bg-secondary mt-2"></div>
             <!--  -->

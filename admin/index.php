@@ -21,8 +21,16 @@
                 <?php include_once "Sidebar.php"; ?>
             <!-- End SideBar -->
             <!-- content -->
-            <div class="col-lg-9 bg-secondary mt-2"></div>
-            <!--  -->
+                <?php 
+                if(isset($_GET['x']) && $_GET['x']=='dashboard'){
+                    include "Dashboard.php";
+                }elseif(isset($_GET['x']) && $_GET['x']=='transaksi'){
+                    include "Transaksi.php";
+                }elseif(isset($_GET['x']) && $_GET['x']=='order makanan'){
+                    include "OMakanan.php";
+                }elseif(isset($_GET['x']) && $_GET['x']=='order meja')
+                    include "OMeja.php";
+                ?>
         </div>
     </div>
 
