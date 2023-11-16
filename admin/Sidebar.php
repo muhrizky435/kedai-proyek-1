@@ -13,10 +13,6 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav flex-column nav-pills justify-content-end flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link ps-2 
-                        <?php echo (isset($_GET['x']) && $_GET['x']=='menu') ? 'active link-light' : 'link-dark' ; ?>" aria-current="page" href="index.php?x=menu">Menu</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='dashboard') ? 'active link-light' : 'link-dark' ; ?>" href="index.php?x=dashboard"><i class="bi bi-menu-button-wide"></i> Dashboard</a>
                     </li>
                     <li class="nav-item">

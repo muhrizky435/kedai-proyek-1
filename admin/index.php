@@ -26,9 +26,9 @@
                     include "Dashboard.php";
                 }elseif(isset($_GET['x']) && $_GET['x']=='transaksi'){
                     include "Transaksi.php";
-                }elseif(isset($_GET['x']) && $_GET['x']=='order makanan'){
+                }elseif(isset($_GET['x']) && $_GET['x']=='orderMakanan'){
                     include "OMakanan.php";
-                }elseif(isset($_GET['x']) && $_GET['x']=='order meja')
+                }elseif(isset($_GET['x']) && $_GET['x']=='orderMeja')
                     include "OMeja.php";
                 ?>
         </div>
@@ -42,4 +42,3 @@
     </script>
 </body>
 
-</html>
