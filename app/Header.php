@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand bg-primary sticky-top">
         <div class="container-lg">
-            <a class="navbar-brand text-light" href=".">Kedai Wartiyem</a>
+            <a class="navbar-brand text-light" href="dashboard">Kedai Wartiyem</a>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">

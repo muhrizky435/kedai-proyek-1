@@ -13,26 +13,25 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav flex-column nav-pills justify-content-end flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link ps-2 
-                        <?php echo (isset($_GET['x']) && $_GET['x']=='menu') ? 'active link-light' : 'link-dark' ; ?>" aria-current="page" href="index.php?x=menu">Menu</a>
+                        <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='dashboard' ||  !isset($_GET['x'])) ? 'active link-light' : 'link-dark' ; ?>" href="dashboard"><i class="bi bi-menu-button-wide"></i> Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='dashboard') ? 'active link-light' : 'link-dark' ; ?>" href="index.php?x=dashboard"><i class="bi bi-menu-button-wide"></i> Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='transaksi') ? 'active link-light' : 'link-dark' ; ?>" href="index.php?x=transaksi"><i class="bi bi-bag-check"></i> Transaksi</a>
+                        <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='transaksi') ? 'active link-light' : 'link-dark' ; ?>" href="transaksi"><i class="bi bi-bag-check"></i> Transaksi</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='order') ? 'active link-light' : 'link-dark' ; ?>" href="index.php?x=order" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='order') ? 'active link-light' : 'link-dark' ; ?>" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false"><i class="bi bi-cart4"></i>
                             Order
                         </a>
                         <ul class="dropdown-menu mt-2">
-                            <li><a class="dropdown-item" href="index.php?x=orderMakanan">Order Makanan</a></li>
-                            <li><a class="dropdown-item" href="index.php?x=orderMeja">Order Meja</a></li>
+                            <li><a class="dropdown-item" href="orderMakanan">Order Makanan</a></li>
+                            <li><a class="dropdown-item" href="orderMeja">Order Meja</a></li>
                         </ul>
                     </li>
                     <h5>Kedai Wartiyem</h5>
+                    <li class="nav-item">
+                        <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='transaksi') ? 'active link-light' : 'link-dark' ; ?>" href="pengguna"><i class="bi bi-bag-check"></i> Pengguna</a>
+                    </li>
                 </ul>
             </div>
         </div>

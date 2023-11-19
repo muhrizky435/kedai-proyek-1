@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -22,14 +23,7 @@
             <!-- End SideBar -->
             <!-- content -->
                 <?php 
-                if(isset($_GET['x']) && $_GET['x']=='dashboard'){
-                    include "Dashboard.php";
-                }elseif(isset($_GET['x']) && $_GET['x']=='transaksi'){
-                    include "Transaksi.php";
-                }elseif(isset($_GET['x']) && $_GET['x']=='order makanan'){
-                    include "OMakanan.php";
-                }elseif(isset($_GET['x']) && $_GET['x']=='order meja')
-                    include "OMeja.php";
+                    include $page
                 ?>
         </div>
     </div>
