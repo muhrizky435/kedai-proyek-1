@@ -43,7 +43,7 @@
 
    
     <main class="form-signin w-100 m-auto">
-        <form action= "../controller/proses_login.php" method="POST">
+        <form action="../controller/proses_login.php" method="POST">
             <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
             <div class="form-floating">
                 <input name="username" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -60,7 +60,7 @@
                     Remember me
                 </label>
             </div>
-            <button class="btn btn-primary w-100 py-2" type="submit" name = "submit">Login</button>
+            <button class="btn btn-primary w-100 py-2" type="submit" name="submit_validate" value="abc">Login</button>
         </form>
     </main>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>

@@ -3,8 +3,8 @@
     $user = "root";
     $pass = "";
     $database = "kedai_db";
-    $koneksi = mysqli_connect($host, $user, $pass, $database);
+    $koneksi = mysqli_connect($host, $user, "$pass", $database);
     if (!$koneksi){
-        echo "Gagal koneksi";
+        echo "Gagal koneksi".mysqli_connect_error();
     }
 ?>

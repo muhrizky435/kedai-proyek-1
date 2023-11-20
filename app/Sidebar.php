@@ -13,17 +13,11 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav flex-column nav-pills justify-content-end flex-grow-1">
                     <li class="nav-item">
-<<<<<<< HEAD:app/Sidebar.php
+                    <!--Sidebar.php -->
                         <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='dashboard' ||  !isset($_GET['x'])) ? 'active link-light' : 'link-dark' ; ?>" href="dashboard"><i class="bi bi-menu-button-wide"></i> Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='transaksi') ? 'active link-light' : 'link-dark' ; ?>" href="transaksi"><i class="bi bi-bag-check"></i> Transaksi</a>
-=======
-                        <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='dashboard') ? 'active link-light' : 'link-dark' ; ?>" href="index.php?x=dashboard"><i class="bi bi-menu-button-wide"></i> Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='transaksi') ? 'active link-light' : 'link-dark' ; ?>" href="index.php?x=transaksi"><i class="bi bi-bag-check"></i> Transaksi</a>
->>>>>>> d77196e1a13f206fc1b5f2e3a9edeeff9587623b:admin/Sidebar.php
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='order') ? 'active link-light' : 'link-dark' ; ?>" role="button" data-bs-toggle="dropdown"
@@ -37,7 +31,7 @@
                     </li>
                     <h5>Kedai Wartiyem</h5>
                     <li class="nav-item">
-                        <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='transaksi') ? 'active link-light' : 'link-dark' ; ?>" href="pengguna"><i class="bi bi-bag-check"></i> Pengguna</a>
+                        <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x']=='pengguna') ? 'active link-light' : 'link-dark' ; ?>" href="pengguna"><i></i> Pengguna</a>
                     </li>
                 </ul>
             </div>
