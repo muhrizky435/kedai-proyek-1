@@ -60,7 +60,7 @@
                     Remember me
                 </label>
             </div>
-            <button class="btn btn-primary w-100 py-2" type="submit" name="submit_validate" value="abc">Login</button>
+            <button class="btn btn-primary w-100 py-2" type="submit" name="submit_validate" value="1">Login</button>
         </form>
     </main>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
