@@ -16,6 +16,9 @@ if (isset($_GET['x']) && $_GET['x'] == 'dashboard') {
     include "main.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'login') {
     include "login.php";
+} elseif (isset($_GET['x']) && $_GET['x'] == 'logout') {
+    $page = 'logout';
+    include "login.php";
 } else {
     include "main.php";
 }
