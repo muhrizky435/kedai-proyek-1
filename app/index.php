@@ -8,11 +8,20 @@ if (isset($_GET['x']) && $_GET['x'] == 'dashboard') {
 } elseif (isset($_GET['x']) && $_GET['x'] == 'orderMakanan') {
     $page = "OMakanan.php";
     include "main.php";
-} elseif (isset($_GET['x']) && $_GET['x'] == 'orderMeja') {
-    $page = "Omeja.php";
+} elseif (isset($_GET['x']) && $_GET['x'] == 'orderMinuman') {
+    $page = "OMinuman.php";
     include "main.php";
-} elseif (isset($_GET['x']) && $_GET['x'] == 'pengguna') {
-    $page = "Pengguna.php";
+} elseif (isset($_GET['x']) && $_GET['x'] == 'customer') {
+    $page = "Customer.php";
+    include "main.php";
+} elseif (isset($_GET['x']) && $_GET['x'] == 'kategori') {
+    $page = "Kategori.php";
+    include "main.php";
+} elseif (isset($_GET['x']) && $_GET['x'] == 'DataMakanan') {
+    $page = "Data.php";
+    include "main.php";
+} elseif (isset($_GET['x']) && $_GET['x'] == 'report') {
+    $page = "Report.php";
     include "main.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'login') {
     include "login.php";

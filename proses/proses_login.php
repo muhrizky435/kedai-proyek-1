@@ -8,15 +8,18 @@
     if (!empty($_POST['submit_validate'])){
         $query = mysqli_query($koneksi,"SELECT * FROM pengguna WHERE username = '$username' && password = '$password'");
         $hasil = mysqli_fetch_array($query);
+
         if ($hasil){
-            $_SESSION['username']=$username;
+            $_SESSION['username_kedai']= $username;
             header('location:../app/dashboard');
+            exit();
         }else { ?>
             <script>
                 alert('Username atau Password yang anda masukan salah');
                 window.location.href='../app/login';
             </script>
-<?php
+        <?php
+        exit();
         }
     }
     

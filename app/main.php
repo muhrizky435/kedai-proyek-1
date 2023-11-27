@@ -1,8 +1,15 @@
 <?php
     session_start();
-    if(!empty($_SESSION['username_kedai'])){
+    if(empty($_SESSION['username_kedai'])){
         header('Location:login');
+        exit();
     }
+    $page = isset($page) ? $page : "Dashboard.php";
+
+    include "../proses/connect.php";
+    $query = mysqli_query($koneksi,"SELECT * FROM pengguna WHERE username = '$_SESSION[username_kedai]'");
+    $hasil = mysqli_fetch_array($query);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,7 +36,7 @@
                 <!-- End SideBar -->
                 <!-- content -->
                 <?php
-                    include $page
+                    include $page;
                 ?>
             </div>
         </div>

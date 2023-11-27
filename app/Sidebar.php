@@ -27,14 +27,30 @@
                             Order
                         </a>
                         <ul class="dropdown-menu mt-2">
-                            <li><a class="dropdown-item" href="orderMakanan">Order Makanan</a></li>
-                            <li><a class="dropdown-item" href="orderMeja">Order Meja</a></li>
+                            <li><a class="dropdown-item" href="orderMakanan"><i class="bi bi-egg-fried"></i> Order Makanan</a></li>
+                            <li><a class="dropdown-item" href="orderMinuman"><i class="bi bi-cup-straw"></i> Order Minuman</a></li>
                         </ul>
                     </li>
                     <h5>Kedai Wartiyem</h5>
+                    <?php if($hasil['level']==1){?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'Makanan&Minuman') ? 'active link-light' : 'link-dark'; ?>"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-brilliance"></i>
+                            Makanan & Minuman
+                        </a>
+                        <ul class="dropdown-menu mt-2">
+                            <li><a class="dropdown-item" href="kategori">Kategori</a></li>
+                            <li><a class="dropdown-item" href="DataMakanan">Data Makanan & Minuman</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'pengguna') ? 'active link-light' : 'link-dark'; ?>"
-                            href="pengguna"><i></i> Pengguna</a>
+                        <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'customer') ? 'active link-light' : 'link-dark'; ?>"
+                            href="customer"><i class="bi bi-people-fill"></i> Customer</a>
+                    </li>
+                    <?php } ?>
+                    <li class="nav-item">
+                        <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'report') ? 'active link-light' : 'link-dark'; ?>"
+                            href="report"><i class="bi bi-gear-fill"></i> Report</a>
                     </li>
                 </ul>
             </div>
