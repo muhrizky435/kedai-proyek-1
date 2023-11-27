@@ -1,5 +1,5 @@
 <?php
-    session_start();
+
     if(empty($_SESSION['username_kedai'])){
         header('Location:login');
         exit();

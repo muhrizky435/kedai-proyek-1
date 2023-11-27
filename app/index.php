@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_GET['x']) && $_GET['x'] == 'dashboard') {
     $page = "Dashboard.php";
     include "main.php";
@@ -11,6 +12,9 @@ if (isset($_GET['x']) && $_GET['x'] == 'dashboard') {
 } elseif (isset($_GET['x']) && $_GET['x'] == 'orderMinuman') {
     $page = "OMinuman.php";
     include "main.php";
+} elseif (isset($_GET['x']) && $_GET['x'] == 'User') {
+    $page = "User.php";
+    include "main.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'customer') {
     $page = "Customer.php";
     include "main.php";
@@ -21,8 +25,13 @@ if (isset($_GET['x']) && $_GET['x'] == 'dashboard') {
     $page = "Data.php";
     include "main.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'report') {
-    $page = "Report.php";
-    include "main.php";
+    if( $_SESSION['level_kedai']==1){
+        $page = "Report.php";
+        include "main.php";
+    }else{
+        $page = "Dashboard.php";
+        include "main.php";
+    }
 } elseif (isset($_GET['x']) && $_GET['x'] == 'login') {
     include "login.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'logout') {
@@ -30,5 +39,5 @@ if (isset($_GET['x']) && $_GET['x'] == 'dashboard') {
     include "login.php";
 } else {
     include "main.php";
-}
+} 
 ?>

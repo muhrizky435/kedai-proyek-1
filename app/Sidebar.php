@@ -47,6 +47,10 @@
                         <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'customer') ? 'active link-light' : 'link-dark'; ?>"
                             href="customer"><i class="bi bi-people-fill"></i> Customer</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'User') ? 'active link-light' : 'link-dark'; ?>"
+                            href="User"><i class="bi bi-people-fill"></i> User</a>
+                    </li>
                     <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'report') ? 'active link-light' : 'link-dark'; ?>"

@@ -11,6 +11,7 @@
 
         if ($hasil){
             $_SESSION['username_kedai']= $username;
+            $_SESSION['level_kedai']= $hasil['level'];
             header('location:../app/dashboard');
             exit();
         }else { ?>
