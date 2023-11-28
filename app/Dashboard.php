@@ -21,7 +21,7 @@
     <div class="card mt-4">
         <h5 class="card-header bg-primary"></h5>
         <div class="card-body">
-            <h6 class="card-title">Total Meja</h6>
+            <h6 class="card-title">Total Harga</h6>
             <p class="card-text">0</p>
         </div>
     </div>
