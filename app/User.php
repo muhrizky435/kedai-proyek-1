@@ -223,8 +223,7 @@ while ($record = mysqli_fetch_array($query)) {
             }, false)
         }
             )
-        })
-        
-()
+        }
+        )
 </script>
     
