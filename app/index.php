@@ -25,10 +25,10 @@ if (isset($_GET['x']) && $_GET['x'] == 'dashboard') {
     $page = "Data.php";
     include "main.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'report') {
-    if( $_SESSION['level_kedai']==1){
+    if ($_SESSION['level_kedai'] == 1) {
         $page = "Report.php";
         include "main.php";
-    }else{
+    } else {
         $page = "Dashboard.php";
         include "main.php";
     }
@@ -39,5 +39,5 @@ if (isset($_GET['x']) && $_GET['x'] == 'dashboard') {
     include "login.php";
 } else {
     include "main.php";
-} 
+}
 ?>

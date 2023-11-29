@@ -49,12 +49,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'User') ? 'active link-light' : 'link-dark'; ?>"
-                            href="User"><i class="bi bi-people-fill"></i> User</a>
+                            href="User"><i class="bi bi-person-vcard"></i> User</a>
                     </li>
                     <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'report') ? 'active link-light' : 'link-dark'; ?>"
-                            href="report"><i class="bi bi-gear-fill"></i> Report</a>
+                            href="report"><i class="bi bi-flag"></i> Report</a>
                     </li>
                 </ul>
             </div>
