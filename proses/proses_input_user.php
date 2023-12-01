@@ -9,12 +9,12 @@ $password = md5('password');
 if(!empty($_POST['input_user_validate'])){
     $query = mysqli_query($koneksi, "INSERT INTO pengguna (Nama,username,level,No_Hp,password) 
     values ('$name','$username','$level','$nohp','$password')");
-    if(!$query){
-        $message = '<script>alert("Data gagal dimasukan")</script>';
-    }else{
+    if($query){
         $message = '<script>alert("Data berhasil dimasukan");
                     window.location="../app/User"</script>
                     </script>';
+    }else{
+        $message = '<script>alert("Data gagal dimasukan")</script>';
     }
 }echo $message;
 ?>

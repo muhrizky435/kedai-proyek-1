@@ -10,7 +10,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link link-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <?php echo $hasil['username']; ?>
+                            <?php echo isset($hasil['username']) ? $hasil['username'] : 'Username'; ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end mt-2">
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-square"></i> Profil</a></li>

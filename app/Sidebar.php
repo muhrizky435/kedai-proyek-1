@@ -32,7 +32,7 @@
                         </ul>
                     </li>
                     <h5>Kedai Wartiyem</h5>
-                    <?php if($hasil['level']==1){?>
+                    <?php if(isset($hasil['level']) && $hasil['level']==1){?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'Makanan&Minuman') ? 'active link-light' : 'link-dark'; ?>"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-brilliance"></i>
