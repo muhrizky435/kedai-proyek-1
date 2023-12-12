@@ -1,6 +1,6 @@
 <?php
 include "../proses/connect.php";
-$query = mysqli_query($koneksi, "SELECT * FROM pengguna");
+$query = mysqli_query($conn, "SELECT * FROM tb_user");
 while ($record = mysqli_fetch_array($query)) {
     $result[] = $record;
 }
@@ -60,7 +60,7 @@ while ($record = mysqli_fetch_array($query)) {
                                                 <div class="form-floating mb-3">
                                                     <select class="form-select" aria-label="Default select example"
                                                         name="level" required>
-                                                        <option selected hidden values="0">Pilih Level User</option>
+                                                        <option selected hidden values="">Pilih Level User</option>
                                                         <option value="1">Admin/Owner</option>
                                                         <option value="2">Kasir</option>
                                                         <option value="3">Pelanggan</option>
@@ -381,21 +381,4 @@ while ($record = mysqli_fetch_array($query)) {
                     ?>
                 </div>
             </div>
-            <script>
-                (() => {
-                    'use strict'
-                    const forms = document.querySelectorAll('.needs-validation')
-
-                    Array.from(forms).forEach(form => {
-                        form.addEventListener('submit', event => {
-                            if (!form.checkValidity()) {
-                                event.preventDefault()
-                                event.stopPropagation()
-                            }
-                            form.classList.add('was-validated')
-                        }, false)
-                    }
-                    )
-                }
-                )
-            </script>
+            

@@ -44,6 +44,7 @@
    
     <main class="form-signin w-100 m-auto">
         <form action="../proses/proses_login.php" method="POST">
+            <img src="../img/logo.jpg" class="img-thumbnail"alt="...">
             <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
             <div class="form-floating">
                 <input name="username" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">

@@ -15,23 +15,18 @@ if (isset($_GET['x']) && $_GET['x'] == 'dashboard') {
 } elseif (isset($_GET['x']) && $_GET['x'] == 'User') {
     $page = "User.php";
     include "main.php";
-} elseif (isset($_GET['x']) && $_GET['x'] == 'customer') {
-    $page = "Customer.php";
-    include "main.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'kategori') {
     $page = "Kategori.php";
     include "main.php";
-} elseif (isset($_GET['x']) && $_GET['x'] == 'DataMakanan') {
-    $page = "Data.php";
+} elseif (isset($_GET['x']) && $_GET['x'] == 'DaftarMakanan') {
+    $page = "Daftar_Makanan.php";
+    include "main.php";
+} elseif (isset($_GET['x']) && $_GET['x'] == 'DaftarMinuman') {
+    $page = "Daftar_Minuman.php";
     include "main.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'report') {
-    if ($_SESSION['level_kedai'] == 1) {
         $page = "Report.php";
         include "main.php";
-    } else {
-        $page = "Dashboard.php";
-        include "main.php";
-    }
 } elseif (isset($_GET['x']) && $_GET['x'] == 'login') {
     include "login.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'logout') {
