@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Nov 2023 pada 03.58
+-- Waktu pembuatan: 12 Des 2023 pada 05.20
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -24,202 +24,239 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori_masakan`
+-- Struktur dari tabel `tb_bayar`
 --
 
-CREATE TABLE `kategori_masakan` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL
+CREATE TABLE `tb_bayar` (
+  `id_bayar` bigint(20) NOT NULL,
+  `nominal_bayar` bigint(20) DEFAULT NULL,
+  `total_bayar` bigint(20) DEFAULT NULL,
+  `waktu_bayar` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `kategori_masakan`
+-- Dumping data untuk tabel `tb_bayar`
 --
 
-INSERT INTO `kategori_masakan` (`id`, `nama`) VALUES
-(1, 'Italian Food'),
-(2, 'Japanese Food'),
-(3, 'Breakfast'),
-(4, 'Snack'),
-(5, 'Italian Food'),
-(6, 'Chinese Food');
+INSERT INTO `tb_bayar` (`id_bayar`, `nominal_bayar`, `total_bayar`, `waktu_bayar`) VALUES
+(2311101829134, 200000, 196000, '2023-11-11 07:49:03'),
+(2311101830432, 8000000, 300000, '2023-11-11 01:29:18'),
+(2311101838709, 80000, 75000, '2023-11-11 01:32:29'),
+(2311102242535, 20000, 18000, '2023-11-11 01:44:34'),
+(2311110901143, 60000, 50000, '2023-11-11 02:02:53'),
+(2311111441116, 400000000000000, 360000, '2023-11-11 07:44:59'),
+(2311111453496, 304000, 300000, '2023-11-11 12:19:47'),
+(2311121127592, 2000000, 1020000, '2023-11-12 04:28:20');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `masakan`
+-- Struktur dari tabel `tb_daftar_menu`
 --
 
-CREATE TABLE `masakan` (
+CREATE TABLE `tb_daftar_menu` (
   `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `id_kategori` int(11) NOT NULL,
-  `harga` int(7) NOT NULL,
-  `gambar` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `foto` varchar(200) DEFAULT NULL,
+  `nama_menu` varchar(200) DEFAULT NULL,
+  `keterangan` varchar(200) DEFAULT NULL,
+  `kategori` int(11) DEFAULT NULL,
+  `harga` varchar(50) DEFAULT NULL,
+  `stok` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data untuk tabel `masakan`
+-- Dumping data untuk tabel `tb_daftar_menu`
 --
 
-INSERT INTO `masakan` (`id`, `nama`, `id_kategori`, `harga`, `gambar`) VALUES
-(1, 'Roti Bakar', 3, 10000, 'background_food_breakfast_83059_800x600.jpg'),
-(2, 'Molen', 4, 5000, 'croissant_cakes_food_106664_800x600.jpg'),
-(3, 'Roti Bakar India', 3, 10000, 'food_table_cafe_snack_sauce_coca_43756_800x600.jpg'),
-(4, 'Pizza', 5, 25000, 'pizza_pastry_appetizing_104513_800x600.jpg'),
-(5, 'Kwetiau', 6, 30000, 'meat_food_salad_dish_appetizing_70012_800x600.jpg');
+INSERT INTO `tb_daftar_menu` (`id`, `foto`, `nama_menu`, `keterangan`, `kategori`, `harga`, `stok`) VALUES
+(24, 'Mie Goreng.png', 'Mie aceh', 'Mie Asli Aceh yang menggunggah selera', 1, '25000', '12000'),
+(25, '33.png', 'Burger', 'Burger Enak Dan lezat terbuat dari roti yang berkualitas', 2, '23000', '45000'),
+(26, '10.png', 'Teh herbal', 'Teh herbal terbuat dari daun obat yang bisa menyembuhkan penyakit iri hati', 2, '9000', '10000'),
+(27, '11.png', 'Boba', 'Terbuat dari susu prindapan yang murni dan sehat', 2, '30000', '9');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `meja`
+-- Struktur dari tabel `tb_daftar_minuman`
 --
 
-CREATE TABLE `meja` (
+CREATE TABLE `tb_daftar_minuman` (
   `id` int(11) NOT NULL,
-  `no_meja` int(3) NOT NULL,
-  `jumlah_kursi` int(11) NOT NULL,
-  `status` char(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `foto` varchar(200) DEFAULT NULL,
+  `nama_menu` varchar(200) DEFAULT NULL,
+  `keterangan` varchar(200) DEFAULT NULL,
+  `kategori` int(11) DEFAULT NULL,
+  `harga` varchar(50) DEFAULT NULL,
+  `stok` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data untuk tabel `meja`
+-- Dumping data untuk tabel `tb_daftar_minuman`
 --
 
-INSERT INTO `meja` (`id`, `no_meja`, `jumlah_kursi`, `status`) VALUES
-(1, 1, 4, '1'),
-(3, 2, 5, '0'),
-(4, 3, 2, '1');
+INSERT INTO `tb_daftar_minuman` (`id`, `foto`, `nama_menu`, `keterangan`, `kategori`, `harga`, `stok`) VALUES
+(24, '5.png', 'Es Jeruk Nipis', 'Jeruk Nipis asli', 2, '25000', '7000'),
+(25, '12.png', 'Jus Mangga', 'Ekstrak Mangga asli dari indramayu', 3, '23000', '12000'),
+(26, '16622-10.png', 'Teh Herbal Anget', 'Teh herbal terbuat dari daun obat yang bisa menyembuhkan penyakit iri hati', 2, '9000', '10000'),
+(27, '11.png', 'Boba', 'Terbuat dari susu prindapan yang murni dan sehat', 2, '30000', '9');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ordermeja`
+-- Struktur dari tabel `tb_kategori_menu`
 --
 
-CREATE TABLE `ordermeja` (
-  `id` int(11) NOT NULL,
-  `no_meja` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
-  `keterangan` text DEFAULT NULL
+CREATE TABLE `tb_kategori_menu` (
+  `id_kat_menu` int(11) NOT NULL,
+  `jenis_menu` int(11) DEFAULT NULL,
+  `kategori_menu` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `ordermeja`
+-- Dumping data untuk tabel `tb_kategori_menu`
 --
 
-INSERT INTO `ordermeja` (`id`, `no_meja`, `tanggal`, `keterangan`) VALUES
-(1, 1, '2020-03-30', 'Tidak Ada'),
-(2, 4, '2020-03-31', 'Dinner');
+INSERT INTO `tb_kategori_menu` (`id_kat_menu`, `jenis_menu`, `kategori_menu`) VALUES
+(1, 1, 'Nasi'),
+(2, 2, 'Kopi'),
+(3, 2, 'jus');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengaturan`
+-- Struktur dari tabel `tb_list_order`
 --
 
-CREATE TABLE `pengaturan` (
-  `nama` varchar(100) NOT NULL,
-  `alamat` text NOT NULL
+CREATE TABLE `tb_list_order` (
+  `id_list_order` int(11) NOT NULL,
+  `menu` int(11) DEFAULT NULL,
+  `kode_order` bigint(20) DEFAULT NULL,
+  `jumlah` int(11) DEFAULT NULL,
+  `catatan` varchar(500) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `pengaturan`
+-- Dumping data untuk tabel `tb_list_order`
 --
 
-INSERT INTO `pengaturan` (`nama`, `alamat`) VALUES
-('Restoran', 'Jln Raya Timur Wanadadi, Banjarnegara, Jawa Tengah');
+INSERT INTO `tb_list_order` (`id_list_order`, `menu`, `kode_order`, `jumlah`, `catatan`, `status`) VALUES
+(1, 24, 2311101838709, 3, '', 2),
+(3, 26, 2311101829134, 9, 'enak bingit', 2),
+(5, 24, 2311101830432, 12, '', 2),
+(6, 26, 2311102242535, 2, 'cocok', 2),
+(7, 24, 2311110901143, 2, 'jangan pedas', 2),
+(8, 25, 2311101829134, 5, 'Suka deh', 2),
+(9, 26, 2311111441116, 15, 'anjay mabar', NULL),
+(10, 24, 2311111441116, 9, 'Suka deh', NULL),
+(12, 24, 2311111453496, 12, 'anjay mabar slebew n', NULL),
+(17, 27, 2311121127592, 34, 'jangan pakai lama', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengguna`
+-- Struktur dari tabel `tb_order`
 --
 
-CREATE TABLE `pengguna` (
-  `id` int(11) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `level` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `tb_order` (
+  `id_order` bigint(20) NOT NULL DEFAULT 0,
+  `pelanggan` varchar(200) DEFAULT NULL,
+  `meja` int(11) DEFAULT NULL,
+  `pelayan` int(11) DEFAULT NULL,
+  `waktu_order` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data untuk tabel `pengguna`
+-- Dumping data untuk tabel `tb_order`
 --
 
-INSERT INTO `pengguna` (`id`, `username`, `password`, `level`) VALUES
-(1, 'admin', '$2y$10$NYgbnscO0dm7Lfxkk.t3wendlzK21JKAEkb5mm7gQV7SW2hSBAT.y', NULL),
-(5, 'admin@gmail.com', '0192023a7bbd73250516f069df18b500', NULL);
+INSERT INTO `tb_order` (`id_order`, `pelanggan`, `meja`, `pelayan`, `waktu_order`) VALUES
+(2311101829134, 'mutiasari', 3, 1, '2023-11-10 13:19:23'),
+(2311101830432, 'mariah', 2, 1, '2023-11-10 13:19:33'),
+(2311101838709, 'syahira', 1, 1, '2023-11-10 13:19:42'),
+(2311102242535, 'mulyadi', 5, 1, '2023-11-10 15:42:48'),
+(2311110901143, 'syahril', 4, 1, '2023-11-11 02:02:08'),
+(2311111441116, 'sinta', 8, 1, '2023-11-11 07:42:09'),
+(2311111453496, 'dupir aja lele', 10, 1, '2023-11-11 12:06:18'),
+(2311121127592, 'syahril luan', 5, 1, '2023-11-12 04:27:46');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
+-- Struktur dari tabel `tb_user`
 --
 
-CREATE TABLE `transaksi` (
+CREATE TABLE `tb_user` (
   `id` int(11) NOT NULL,
-  `masakan` varchar(100) NOT NULL,
-  `total` varchar(11) NOT NULL,
-  `no_meja` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
-  `harga` varchar(100) NOT NULL
+  `Nama` varchar(200) DEFAULT NULL,
+  `username` varchar(200) DEFAULT NULL,
+  `password` varchar(200) DEFAULT NULL,
+  `level` int(11) DEFAULT NULL,
+  `No_Hp` varchar(15) DEFAULT NULL,
+  `alamat` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `transaksi`
+-- Dumping data untuk tabel `tb_user`
 --
 
-INSERT INTO `transaksi` (`id`, `masakan`, `total`, `no_meja`, `tanggal`, `harga`) VALUES
-(1, 'Molen,Pizza', '4,1', 1, '2020-03-31', '5000,25000'),
-(2, 'Molen,Kwetiau', '2,1', 3, '2020-03-31', '5000,30000');
+INSERT INTO `tb_user` (`id`, `Nama`, `username`, `password`, `level`, `No_Hp`, `alamat`) VALUES
+(1, 'Apoy', 'admin@admin.com', 'e00cf25ad42683b3df678c61f42c6bda', 1, '123456789016', 'Cirebon'),
+(2, 'abc2', 'abc2@abc.com', '63872b5565b2179bd72ea9c339192543', 3, '123456789011', 'Sindang'),
+(4, 'lolali', 'lola@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, '0859688', 'Jatibarang'),
+(5, 'Asep Saepullah', 'Asep@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 3, '0835688865', 'Lelea'),
+(6, 'slebew', 'slebew@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 2, '084311111', 'Legok'),
+(7, 'Pelanggan', 'pelanggan@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 2, '8744444', 'Lohbener');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `kategori_masakan`
+-- Indeks untuk tabel `tb_bayar`
 --
-ALTER TABLE `kategori_masakan`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `tb_bayar`
+  ADD PRIMARY KEY (`id_bayar`);
 
 --
--- Indeks untuk tabel `masakan`
+-- Indeks untuk tabel `tb_daftar_menu`
 --
-ALTER TABLE `masakan`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `tb_daftar_menu`
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD KEY `FK_tb_daftar_menu_tb_kategori_menu` (`kategori`);
 
 --
--- Indeks untuk tabel `meja`
+-- Indeks untuk tabel `tb_daftar_minuman`
 --
-ALTER TABLE `meja`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `no_meja` (`no_meja`);
+ALTER TABLE `tb_daftar_minuman`
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD KEY `FK_tb_daftar_menu_tb_kategori_menu` (`kategori`);
 
 --
--- Indeks untuk tabel `ordermeja`
+-- Indeks untuk tabel `tb_kategori_menu`
 --
-ALTER TABLE `ordermeja`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `tb_kategori_menu`
+  ADD PRIMARY KEY (`id_kat_menu`) USING BTREE;
 
 --
--- Indeks untuk tabel `pengaturan`
+-- Indeks untuk tabel `tb_list_order`
 --
-ALTER TABLE `pengaturan`
-  ADD KEY `nama` (`nama`);
+ALTER TABLE `tb_list_order`
+  ADD PRIMARY KEY (`id_list_order`),
+  ADD KEY `menu` (`menu`),
+  ADD KEY `order` (`kode_order`) USING BTREE;
 
 --
--- Indeks untuk tabel `pengguna`
+-- Indeks untuk tabel `tb_order`
 --
-ALTER TABLE `pengguna`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
+ALTER TABLE `tb_order`
+  ADD PRIMARY KEY (`id_order`) USING BTREE,
+  ADD KEY `FK_tb_daftar_menu_tb_kategori_menu` (`pelayan`) USING BTREE;
 
 --
--- Indeks untuk tabel `transaksi`
+-- Indeks untuk tabel `tb_user`
 --
-ALTER TABLE `transaksi`
+ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -227,40 +264,57 @@ ALTER TABLE `transaksi`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `kategori_masakan`
+-- AUTO_INCREMENT untuk tabel `tb_daftar_menu`
 --
-ALTER TABLE `kategori_masakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `tb_daftar_menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT untuk tabel `masakan`
+-- AUTO_INCREMENT untuk tabel `tb_daftar_minuman`
 --
-ALTER TABLE `masakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `tb_daftar_minuman`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT untuk tabel `meja`
+-- AUTO_INCREMENT untuk tabel `tb_kategori_menu`
 --
-ALTER TABLE `meja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `tb_kategori_menu`
+  MODIFY `id_kat_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT untuk tabel `ordermeja`
+-- AUTO_INCREMENT untuk tabel `tb_list_order`
 --
-ALTER TABLE `ordermeja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `tb_list_order`
+  MODIFY `id_list_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT untuk tabel `pengguna`
+-- AUTO_INCREMENT untuk tabel `tb_user`
 --
-ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `tb_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT untuk tabel `transaksi`
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
-ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_daftar_menu`
+--
+ALTER TABLE `tb_daftar_menu`
+  ADD CONSTRAINT `FK_tb_daftar_menu_tb_kategori_menu` FOREIGN KEY (`kategori`) REFERENCES `tb_kategori_menu` (`id_kat_menu`) ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_list_order`
+--
+ALTER TABLE `tb_list_order`
+  ADD CONSTRAINT `FK_tb_list_order_tb_daftar_menu` FOREIGN KEY (`menu`) REFERENCES `tb_daftar_menu` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_tb_list_order_tb_order` FOREIGN KEY (`kode_order`) REFERENCES `tb_order` (`id_order`) ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_order`
+--
+ALTER TABLE `tb_order`
+  ADD CONSTRAINT `FK_tb_order_tb_user` FOREIGN KEY (`pelayan`) REFERENCES `tb_user` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
