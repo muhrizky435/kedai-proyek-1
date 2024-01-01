@@ -8,8 +8,8 @@ include "connect.php";
         $hasil = mysqli_fetch_array($query);
         if($hasil){
             $_SESSION['username_kedai'] = $username;
-            $_SESSION['level_decafe'] = $hasil['level'];
-            $_SESSION['id_decafe'] = $hasil['id'];
+            $_SESSION['level_kedai'] = $hasil['level'];
+            $_SESSION['id_kedai'] = $hasil['id'];
 
             header('location:../app/dashboard');
         }else{ ?>

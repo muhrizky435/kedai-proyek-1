@@ -58,8 +58,6 @@ $select_menu = mysqli_query($conn, "SELECT id,nama_menu FROM tb_daftar_menu");
                 }
                 ?>
 
-               
-
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>

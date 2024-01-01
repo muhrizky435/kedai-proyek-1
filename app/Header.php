@@ -1,33 +1,24 @@
 <?php
 include "../proses/connect.php";
-
-$query = mysqli_query($conn, "SELECT * FROM tb_user WHERE id = '1'");
-$row = mysqli_fetch_assoc($query);
+$query = mysqli_query($conn, "SELECT * FROM tb_user WHERE username='$_SESSION[username_kedai]'");
+$records = mysqli_fetch_array($query);
 ?>
-
-<nav class="navbar navbar-expand bg-primary sticky-top">
+<nav class="navbar navbar-expand navbar-dark bg-primary sticky-top">
     <div class="container-lg">
-        <a class="navbar-brand text-light" href="dashboard">
-            <img src="../img/logo1.png" alt="logo kedai wariyem" width="55px"><b>Kedai Wartiyem</b></a>
-        <button class="navbar-toggler" type="button" data bs-toggle="collapse" data bs-target="#navbarNavDropdown"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbarNavDropdown-icon"></span>
-        </button>
+        <a class="navbar-brand" href="."><img src="../img/logo1.png" alt="logo aplikasi" width="55px"> Kedai Wartiyem</a>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link link-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <?php echo isset($_SESSION['username_kedai']) ? $_SESSION['username_kedai'] : 'Username'; ?>
+                        <?php echo $hasil['username']; ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end mt-2">
-                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#ModalProfil"><i
-                                    class="bi bi-person-square"></i> Profil</a></li>
-                        <li><a class="dropdown-item" href="dashboard"><i class="bi bi-house-door"></i> Home</a></li>
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                data-bs-target="#ModalUbahPassword"><i class="bi bi-key-fill"></i>
-                                Ubah Password</a></li>
-                        <li><a class="dropdown-item" href="logout"><i class="bi bi-box-arrow-left"></i> Keluar</a></li>
+                                data-bs-target="#ModalUbahProfile"><i class="bi bi-file-person"></i> Profile</a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                data-bs-target="#ModalUbahPassword"><i class="bi bi-key"></i> Ubah Password</a></li>
+                        <li><a class="dropdown-item" href="logout"><i class="bi bi-box-arrow-left"></i> Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -35,16 +26,16 @@ $row = mysqli_fetch_assoc($query);
     </div>
 </nav>
 
-<!-- Modal ubah password-->
+<!-- Modal Ubah Password-->
 <div class="modal fade" id="ModalUbahPassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-fullscreeen-md-down">
+    <div class="modal-dialog modal-lg modal-fullscreen-md-down">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Password User</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Password</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="needs-validation" novalidate action="../proses/proses_ubah_password.php" method="POST">
+                <form class="needs-validation" novalidate action="../proses/proses_ubah_profile.php" method="POST">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-floating mb-3">
@@ -53,7 +44,7 @@ $row = mysqli_fetch_assoc($query);
                                     value="<?php echo $_SESSION['username_kedai'] ?>">
                                 <label for="floatingInput">Username</label>
                                 <div class="invalid-feedback">
-                                    Masukkan Username.
+                                    Masukkan Username
                                 </div>
                             </div>
                         </div>
@@ -63,7 +54,7 @@ $row = mysqli_fetch_assoc($query);
                                     required>
                                 <label for="floatingInput">Password Lama</label>
                                 <div class="invalid-feedback">
-                                    Masukkan Password Lama.
+                                    Masukkan Password Lama
                                 </div>
                             </div>
                         </div>
@@ -75,24 +66,24 @@ $row = mysqli_fetch_assoc($query);
                                     required>
                                 <label for="floatingInput">Password Baru</label>
                                 <div class="invalid-feedback">
-                                    Masukkan Password Baru.
+                                    Masukkan Password baru
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="floatingPassword" name="Repasswordbaru"
+                                <input type="password" class="form-control" id="floatingPassword" name="repasswordbaru"
                                     required>
-                                <label for="floatingInput">Ulangi Password Baru</label>
+                                <label for="floatingInput">Ulangi Password baru</label>
                                 <div class="invalid-feedback">
-                                    Masukkan Ulangi Password Baru.
+                                    Masukkan Ulangi Password baru
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" name="ubah_password_validate" value="1234">Save
+                        <button type="submit" class="btn btn-primary" name="ubah_password_validate" value="12345">Save
                             changes</button>
                     </div>
                 </form>
@@ -100,84 +91,71 @@ $row = mysqli_fetch_assoc($query);
         </div>
     </div>
 </div>
-<!-- akhir ubah password -->
+<!-- End Ubah Password-->
 
-<!-- Modal view-->
-<div class="modal fade" id="ModalProfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-fullscreeen-md-down">
+<!-- Modal Ubah Profile-->
+<div class="modal fade" id="ModalUbahProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-fullscreen-md-down">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Data User</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Password</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="needs-validation" novalidate action="../proses/proses_input_user.php" method="GET">
+                <form class="needs-validation" novalidate action="../proses/proses_ubah_profile.php" method="POST">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="form-floating mb-3">
-                                <input disabled type="text" class="form-control" id="floatingInput"
-                                    placeholder="Your Name" name="Nama" value="<?php echo isset($_SESSION['username_kedai']) ? $_SESSION['username_kedai'] : 'Nama'; ?>">
-                                <label for="floatingInput">Nama</label>
+                                <input disabled type="email" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com" name="username" required
+                                    value="<?php echo $_SESSION['username_kedai'] ?>">
+                                <label for="floatingInput">Username</label>
                                 <div class="invalid-feedback">
-                                    Masukkan Nama.
+                                    Masukkan Username
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="form-floating mb-3">
-                                <input disabled type="email" class="form-control" id="floatingInput"
-                                    placeholder="name@example.com" name="username"
-                                    value="<?php echo isset($_SESSION['username_kedai']) ? $_SESSION['username_kedai'] : 'Username'; ?>">
-                                <label for="floatingInput">Username</label>
+                                <input type="text" class="form-control" id="floatingNama" name="nama" required
+                                    value="<?php echo $records['Nama'] ?>">
+                                <label for="floatingInput">Nama</label>
                                 <div class="invalid-feedback">
-                                    Masukkan Username.
+                                    Masukkan Nama Anda
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="floatingInput" name="nohp" required
+                                    value="<?php echo $records['No_H***p'] ?>">
+                                <label for="floatingInput">Nomor HP</label>
+                                <div class="invalid-feedback">
+                                    Masukkan Nomor HP Anda
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="form-floating mb-3">
-                                <select class="form-select" aria-label="Default select example" disabled name="level"
-                                    id="">
-                                    <?php
-                                    $data = array("Admin/Owner", "Kasir", "Pelanggan");
-                                    foreach ($data as $key => $value) {
-                                        if ($row['level'] == $key + 1) {
-                                            echo "<option value='$key'>$value</option>";
-                                        } else {
-                                            echo "<option value='$key'>$value</option>";
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                                <label for="floatingInput">Level User</label>
+                                <textarea class="form-control" id="" style="height: 100px;"
+                                    name="alamat"><?php echo $records['alamat'] ?></textarea>
+                                <label for="floatingInput">Alamat</label>
                                 <div class="invalid-feedback">
-                                    Pilih Level User.
+                                    Masukkan Alamat Anda
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="floatingInput" placeholder="081xxxxx"
-                                    name="No_Hp" disabled value="<?php echo $row['No_Hp'] ?>">
-                                <label for="floatingInput">No HP</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="floatingInput" placeholder="password"
-                                    name="password" disabled value="1234">
-                                <label for="floatingPassword">Password</label>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" name="ubah_profile_validate" value="12345">Save
+                            changes</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<!-- akhir View -->
+<!-- End Ubah Profile-->

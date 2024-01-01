@@ -8,7 +8,7 @@ $harga = (isset($_POST['harga'])) ? htmlentities($_POST['harga']) : "";
 $stok = (isset($_POST['stok'])) ? htmlentities($_POST['stok']) : "";
 
 $kode_rand = rand(10000,99999)."-";
-$target_dir = "../assets/img/".$kode_rand;
+$target_dir = "../img/".$kode_rand;
 $target_file = $target_dir . basename($_FILES['foto']['name']);
 $imageType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -37,21 +37,21 @@ if (!empty($_POST['input_menu_validate'])) {
 }
     if ($statusUpload == 0) {
         $message = '<script>alert("' . $message . ', Gambar tidak dapat diupload");
-                window.location="../app/DaftarMakanan"</script>';
+                window.location="../app/menu"</script>';
     } else {
         $select = mysqli_query($conn, "SELECT * FROM tb_daftar_menu WHERE nama_menu = '$nama_menu'");
         if (mysqli_num_rows($select) > 0) {
             $message = '<script>alert("Nama menu yang dimasukkan telah ada");
-                        window.location="../app/DaftarMakanan"</script>';
+                        window.location="../app/menu"</script>';
         } else {
             if (move_uploaded_file($_FILES['foto']['tmp_name'], $target_file)) {
                 $query = mysqli_query($conn, "UPDATE tb_daftar_menu SET foto='" . $kode_rand. $_FILES['foto']['name'] . "', nama_menu='$nama_menu', keterangan='$keterangan', kategori='$kat_menu', harga='$harga', stok='$stok' WHERE id='$id'");
                 if ($query) {
                     $message = '<script>alert("Data berhasil dimasukkan");
-                            window.location="../app/DaftarMakanan"</script>';
+                            window.location="../app/menu"</script>';
                 } else {
                     $message = '<script>alert("Data gagal dimasukkan");
-                            window.location="../app/DaftarMakanan"</script>';
+                            window.location="../app/menu"</script>';
                 }
             } else {
                 $message = '<script>alert("Maaf, terjadi kesalahan file tidak dapat diupload");

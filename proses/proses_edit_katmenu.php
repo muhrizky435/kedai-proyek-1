@@ -7,7 +7,7 @@ $katmenu = (isset($_POST['katmenu'])) ? htmlentities($_POST['katmenu']) : "";
 if(!empty($_POST['input_katmenu_validate'])){
     $select = mysqli_query($conn, "SELECT kategori_menu FROM tb_kategori_menu WHERE kategori_menu = '$katmenu'");
     if (mysqli_num_rows($select) > 0) {
-        $message = '<script>alert("kategori Menu yang dimasukkan telah ada")
+        $message = '<script>alert("Kategori Menu yang dimasukkan telah ada")
         window.location="../app/kategori"</script>';
     } else {
     $query = mysqli_query($conn, "UPDATE tb_kategori_menu SET jenis_menu='$jenismenu', kategori_menu='$katmenu' WHERE id_kat_menu='$id'");

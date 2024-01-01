@@ -1,6 +1,0 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^app/([a-zA-Z0-9_-]+)$ app/index.php?x=$1 [QSA,L]
-</IfModule>
