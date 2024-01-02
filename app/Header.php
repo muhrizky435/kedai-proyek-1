@@ -128,7 +128,7 @@ $records = mysqli_fetch_array($query);
                         <div class="col-lg-4">
                             <div class="form-floating mb-3">
                                 <input type="number" class="form-control" id="floatingInput" name="nohp" required
-                                    value="<?php echo $records['No_H***p'] ?>">
+                                    value="<?php echo $records['No_Hp'] ?>">
                                 <label for="floatingInput">Nomor HP</label>
                                 <div class="invalid-feedback">
                                     Masukkan Nomor HP Anda

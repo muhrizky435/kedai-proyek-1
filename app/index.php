@@ -4,7 +4,7 @@
                     $page = "Dashboard.php";
                     include "main.php";
                 }elseif(isset($_GET['x']) && $_GET['x']=='order'){
-                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==3) {
+                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==2 || $_SESSION['level_kedai']==3) {
                     $page = "order.php";
                     include "main.php";
                 }else{
@@ -12,7 +12,7 @@
                     include "main.php";
                 }
                 }elseif(isset($_GET['x']) && $_GET['x']=='transaksi'){
-                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==3) {
+                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==2 || $_SESSION['level_kedai']==3) {
                     $page = "Transaksi.php";
                     include "main.php";
                 }else{
@@ -27,19 +27,9 @@
                         $page = "Dashboard.php";
                         include "main.php";
                     }
-
-                }elseif(isset($_GET['x']) && $_GET['x']=='dapur'){
-                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==3) {
-                    $page = "dapur.php";
-                    include "main.php";
-                }else{
-                    $page = "Dashboard.php";
-                    include "main.php";
-                }
-
                 }elseif(isset($_GET['x']) && $_GET['x']=='report'){
 
-                    if($_SESSION['level_kedai']==1){
+                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==2 || $_SESSION['level_kedai']==3){
                         $page = "report.php";
                         include "main.php";
                     }else{
@@ -49,7 +39,7 @@
 
 
                 }elseif(isset($_GET['x']) && $_GET['x']=='menu'){
-                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==3) {
+                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==2 || $_SESSION['level_kedai']==3) {
                     $page = "menu.php";
                     include "main.php";
                 }else{
@@ -73,7 +63,7 @@
                 }
 
                 }elseif(isset($_GET['x']) && $_GET['x']=='orderitem'){
-                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==3) {
+                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==2 || $_SESSION['level_kedai']==3) {
                     $page = "order_item.php";
                     include "main.php";
                 }else{
@@ -82,7 +72,7 @@
                 }
 
                 }elseif(isset($_GET['x']) && $_GET['x']=='viewitem'){
-                    if($_SESSION['level_kedai']==1) {
+                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==2 || $_SESSION['level_kedai']==3) {
                     $page = "view_item.php";
                     include "main.php";
                 }else{

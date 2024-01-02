@@ -1,8 +1,8 @@
 <?php
-    //session_start();
-    if(!empty($_SESSION['username_kedai'])){
-        header('location:dashboard');
-    }
+//session_start();
+if (!empty($_SESSION['username_kedai'])) {
+    header('location:dashboard');
+}
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -15,10 +15,11 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title>DeCafe - Aplikasi Pemesananan Makanan dan Minuman Cafe</title>
+    <title>Aplikasi Kasir Pemesanan Makanan dan Minuman - Kedai Wartiyem</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
         .bd-placeholder-img {
@@ -97,6 +98,73 @@
         .bd-mode-toggle .dropdown-menu .active .bi {
             display: block !important;
         }
+
+        .container {
+            display: block;
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 12px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Hide the browser's default checkbox */
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #eee;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container:hover input~.checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .container input:checked~.checkmark {
+            background-color: #2196F3;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .container input:checked~.checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .container .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
     </style>
 
     <!-- Custom styles for this template -->
@@ -124,27 +192,45 @@
         </symbol>
     </svg>
 
-   
-    <main class="form-signin w-100 m-auto">
+
+    <main class="form-signin w-700 m-auto">
         <form action="../proses/proses_login.php" method="POST">
-            <img src="../img/logo.jpg" class="img-thumbnail"alt="...">
+            <img src="../img/logo.jpg" class="img-thumbnail" alt="...">
             <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
             <div class="form-floating">
-                <input name="username" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input name="username" type="email" class="form-control" id="floatingInput"
+                    placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
-                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input name="password" type="password" class="form-control" id="floatingPassword"
+                    placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
 
-            <div class="form-check text-start my-3">
-                <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Remember me
-                </label>
+            <h5>Pilih Level User:</h5>
+            <div class="row">
+                <div class="col-lg-4">
+                    <label class="container">Admin
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="col-lg-4">
+                    <label class="container">Kasir
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="col-lg-4">
+                    <label class="container">Pelanggan
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
             </div>
-            <button class="btn btn-primary w-100 py-2" type="submit" name="submit_validate" value="1">Login</button>
+            </div>
+            <button class="btn btn-primary w-100 py-2 mt-3" type="submit" name="submit_validate" value="1">Login</button>
         </form>
     </main>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>

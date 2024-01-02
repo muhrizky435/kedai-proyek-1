@@ -18,7 +18,7 @@
                                 aria-current="page" href="dashboard"><i class="bi bi-house-door"></i> Dashboard</a>
                         </li>
 
-                        <?php if ($hasil['level'] == 1 || $hasil['level'] == 3) { ?>
+                        <?php if ($hasil['level'] == 1 || $hasil['level'] == 2 || $hasil['level'] == 3) { ?>
                             <li class="nav-item">
                                 <a class="nav-link  ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'menu') ? 'active link-light' : 'link-dark'; ?>"
                                     href="menu"><i class="bi bi-egg-fried"></i> Daftar Menu</a>
@@ -28,42 +28,37 @@
                         <?php if ($hasil['level'] == 1) { ?>
                             <li class="nav-item">
                                 <a class="nav-link  ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'kategori') ? 'active link-light' : 'link-dark'; ?>"
-                                    href="kategori"><i class="bi bi-cart4"></i> Kategori Menu</a>
+                                    href="kategori"><i class="bi bi-card-text"></i> Kategori Menu</a>
                             </li>
                         <?php } ?>
 
                         <?php if ($hasil['level'] == 1 || $hasil['level'] == 2 || $hasil['level'] == 3) { ?>
                             <li class="nav-item">
                                 <a class="nav-link  ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'order') ? 'active link-light' : 'link-dark'; ?>"
-                                    href="order"><i class="bi bi-card-text"></i> Order</a>
+                                    href="order"><i class="bi bi-cart4"></i> Order</a>
                             </li>
                         <?php } ?>
                         <?php if ($hasil['level'] == 1 || $hasil['level'] == 2 || $hasil['level'] == 3) { ?>
                             <li class="nav-item">
                                 <a class="nav-link  ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'transaksi') ? 'active link-light' : 'link-dark'; ?>"
-                                    href="transaksi"><i class="bi bi-card-text"></i> Transaksi</a>
+                                    href="transaksi"><i class="bi bi-bag-check"></i> Transaksi</a>
                             </li>
                         <?php } ?>
                         <h5 class="pt-2"><img src="../img/logo1.png" alt="logo kedai wariyem" width="50px"> Kedai
                         Wartiyem</h5>
-
-                        <?php if ($hasil['level'] == 1 || $hasil['level'] == 3) { ?>
-                            <li class="nav-item">
-                                <a class="nav-link  ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'dapur') ? 'active link-light' : 'link-dark'; ?>"
-                                    href="dapur"><i class="bi bi-fire"></i> Dapur</a>
-                            </li>
-                        <?php } ?>
-
-                        <?php if ($hasil['level'] == 1) { ?>
+                        
+                        <?php if ($hasil['level'] == 1 ) { ?>
                             <li class="nav-item">
                                 <a class="nav-link  ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'user') ? 'active link-light' : 'link-dark'; ?>"
                                     href="user"><i class="bi bi-card-checklist"></i> User</a>
                             </li>
+                        <?php } ?>
+                        <?php if ($hasil['level'] == 1 || $hasil['level'] == 2 || $hasil['level'] == 3) { ?>
                             <li class="nav-item">
                                 <a class="nav-link  ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'report') ? 'active link-light' : 'link-dark'; ?>"
                                     href="report"><i class="bi bi-file-earmark-bar-graph"></i> Report</a>
                             </li>
-                        <?php } ?>
+                        <?php } ?>                       
                     </ul>
                 </div>
             </div>

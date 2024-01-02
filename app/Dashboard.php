@@ -53,7 +53,7 @@ while ($row = mysqli_fetch_array($query)) {
 
     <div class="card mt-4 border-0 bg-light">
         <div class="card-body text-center">
-            <h5 class="card-title">DECAFE - APLIKASI KASIR PEMESANAN MAKANAN DAN MINUMAN</h5>
+            <h5 class="card-title">KEDAI WARTIYEM - APLIKASI KASIR PEMESANAN MAKANAN DAN MINUMAN</h5>
             <p class="card-text">Aplikasi pemesanan makanan dan minuman yang mudah dan praktis. Nikmati beragam menu makanan dan minuman favorit Anda beberapa klik. pesan, bayar dan lacak pesanan Anda dengan mudah melalui aplikasi ini.</p>
             <a href="order" class="btn btn-primary">Buat Order</a>
         </div>

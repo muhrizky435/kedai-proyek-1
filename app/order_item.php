@@ -27,7 +27,7 @@ $select_menu = mysqli_query($conn, "SELECT id,nama_menu FROM tb_daftar_menu");
 <div class="col-lg-9 mt-2">
     <div class="card">
         <div class="card-header">
-            Halaman Order Item
+            Halaman Lihat Transaksi & Order Item
         </div>
         <div class="card-body">
             <a href="order" class="btn btn-info mb-3"><i class="bi bi-arrow-left"></i></a>
