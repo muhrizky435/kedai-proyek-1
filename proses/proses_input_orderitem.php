@@ -18,7 +18,7 @@ if (!empty($_POST['input_orderitem_validate'])) {
         $query = mysqli_query($conn, "INSERT INTO tb_list_order (menu,kode_order,jumlah,catatan) values('$menu','$kode_order','$jumlah','$catatan')");
         if ($query) {
             $message = '<script>alert("Data berhasil dimasukkan");
-                        window.location="../?x=orderitem&order='.$kode_order.'&meja='.$meja.'&pelanggan='.$pelanggan.'"</script>';
+                        window.location="../app/transaksi"</script>';
         } else {
             $message = '<script>alert("Data gagal dimasukkan")
                         window.location="../?x=orderitem&order='.$kode_order.'&meja='.$meja.'&pelanggan='.$pelanggan.'"</script>';
