@@ -9,7 +9,7 @@ if(!empty($_POST['delete_orderitem_validate'])){
     $query = mysqli_query($conn, "DELETE FROM tb_list_order WHERE id_list_order = '$id'");
     if($query){
         $message = '<script>alert("Data berhasil dihapus")
-        window.location="../?x=orderitem&order='.$kode_order.'&meja='.$meja.'&pelanggan='.$pelanggan.'"</script>';
+        window.location="../app/transaksi"</script>';
     }else{
         $message = '<script>alert("Data gagal dihapus")
         window.location="../?x=orderitem&order='.$kode_order.'&meja='.$meja.'&pelanggan='.$pelanggan.'"</script>';
