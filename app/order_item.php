@@ -202,7 +202,7 @@ $select_menu = mysqli_query($conn, "SELECT id,nama_menu FROM tb_daftar_menu");
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="needs-validation" novalidate action="proses/proses_delete_orderitem.php"
+                                    <form class="needs-validation" novalidate action="../proses/proses_delete_orderitem.php"
                                         method="POST">
                                         <input type="hidden" value="<?php echo $row['id_list_order'] ?>" name="id">
                                         <input type="hidden" name="kode_order" value="<?php echo $kode ?>">
