@@ -4,7 +4,7 @@
                     $page = "Dashboard.php";
                     include "main.php";
                 }elseif(isset($_GET['x']) && $_GET['x']=='order'){
-                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==2 || $_SESSION['level_kedai']==3) {
+                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==3) {
                     $page = "order.php";
                     include "main.php";
                 }else{
@@ -54,7 +54,7 @@
 
 
                 }elseif(isset($_GET['x']) && $_GET['x']=='kategori'){
-                    if($_SESSION['level_kedai']==1) {
+                    if($_SESSION['level_kedai']==1 || $_SESSION['level_kedai']==2) {
                     $page = "katmenu.php";
                     include "main.php";
                 }else{

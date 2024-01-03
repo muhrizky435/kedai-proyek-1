@@ -25,14 +25,14 @@
                             </li>
                         <?php } ?>
 
-                        <?php if ($hasil['level'] == 1) { ?>
+                        <?php if ($hasil['level'] == 1 || $hasil['level'] == 2 ) { ?>
                             <li class="nav-item">
                                 <a class="nav-link  ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'kategori') ? 'active link-light' : 'link-dark'; ?>"
                                     href="kategori"><i class="bi bi-card-text"></i> Kategori Menu</a>
                             </li>
                         <?php } ?>
 
-                        <?php if ($hasil['level'] == 1 || $hasil['level'] == 2 || $hasil['level'] == 3) { ?>
+                        <?php if ($hasil['level'] == 1 || $hasil['level'] == 3) { ?>
                             <li class="nav-item">
                                 <a class="nav-link  ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'order') ? 'active link-light' : 'link-dark'; ?>"
                                     href="order"><i class="bi bi-cart4"></i> Order</a>

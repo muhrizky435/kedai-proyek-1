@@ -41,7 +41,7 @@ while ($record = mysqli_fetch_array($query)) {
                             <th scope="col">Pelanggan</th>
                             <th scope="col">Meja</th>
                             <th scope="col">Total Harga</th>
-                            <th scope="col">Pelayan</th>
+                            <th scope="col">Kasir</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -93,25 +93,3 @@ while ($record = mysqli_fetch_array($query)) {
 </div>
 </div>
 </div>
-
-<script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (() => {
-        'use strict'
-
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.from(forms).forEach(form => {
-            form.addEventListener('submit', event => {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-
-                form.classList.add('was-validated')
-            }, false)
-        })
-    })()
-</script>
