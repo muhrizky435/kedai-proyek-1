@@ -407,9 +407,7 @@ $select_menu = mysqli_query($conn, "SELECT id,nama_menu FROM tb_daftar_menu");
                     class="<?php echo (!empty($row['id_bayar'])) ? "btn btn-secondary disabled" : "btn btn-success"; ?>"
                     data-bs-toggle="modal" data-bs-target="#tambahItem"><i
                         class="bi bi-plus-circle-fill"></i>Item</button>
-                <button
-                    class="<?php echo (!empty($row['id_bayar'])) ? "btn btn-secondary disabled" : "btn btn-primary"; ?>"
-                    data-bs-toggle="modal" data-bs-target="#bayar"><i class="bi bi-cash-coin"></i> Bayar</button>
+                
             </div>
         </div>
     </div>

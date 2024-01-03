@@ -5,7 +5,7 @@ $kode_order = (isset($_POST['kode_order'])) ? htmlentities($_POST['kode_order'])
 $meja = (isset($_POST['meja'])) ? htmlentities($_POST['meja']) : "";
 $pelanggan = (isset($_POST['pelanggan'])) ? htmlentities($_POST['pelanggan']) : "";
 $total = (isset($_POST['total'])) ? htmlentities($_POST['total']) : "";
-$uang = (isset($_POST['uang'])) ? htmlentities($_POST['uang']) : "";
+$uang = (isset($_POST['nominal_bayar'])) ? htmlentities($_POST['nominal_bayar']) : "";
 $kembalian = $uang - $total;
 
 if (!empty($_POST['bayar_validate'])) {
@@ -13,9 +13,9 @@ if (!empty($_POST['bayar_validate'])) {
         $message = '<script>alert("Nominal uang tidak mencukupi");
         window.location="../?x=orderitem&order=' . $kode_order . '&meja=' . $meja . '&pelanggan=' . $pelanggan . '"</script>';
     } else {
-            $query = mysqli_query($conn, "INSERT INTO tb_bayar (id_bayar,nominal_uang,total_bayar) values('$kode_order','$uang','$total')");
+            $query = mysqli_query($conn, "INSERT INTO tb_bayar (id_bayar,nominal_bayar,total_bayar) values('$kode_order','$uang','$total')");
             if ($query) {
-                $message = '<script>alert("Pembayaran berhasil \nUang kembalian Rp. '.$kembalian.'");
+                $message = '<script>alert("Pembayaran berhasil \Uang kembalian Rp. '.$kembalian.'");
                         window.location="../?x=orderitem&order=' . $kode_order . '&meja=' . $meja . '&pelanggan=' . $pelanggan . '"</script>';
             } else {
                 $message = '<script>alert("Pembayaran gagal")
